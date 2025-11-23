@@ -5,6 +5,11 @@ import { OverviewPage } from './pages/overview/OverviewPage';
 import { StudentsPage } from './pages/students/StudentsPage';
 import { AgentsMonitorPage } from './pages/agents/AgentsMonitorPage';
 import { AnalyticsPage } from './pages/analytics/AnalyticsPage';
+import { DataManagementPage } from './pages/admin/DataManagementPage';
+import { RoleManagementPage } from './pages/admin/RoleManagementPage';
+import { LogViewerPage } from './pages/admin/LogViewerPage';
+import { FinancialPage } from './pages/financial/FinancialPage';
+import { AttendancePage } from './pages/attendance/AttendancePage';
 
 function App() {
   return (
@@ -12,11 +17,21 @@ function App() {
       <Routes>
         <Route path="/login" element={<LoginPage />} />
         <Route path="/" element={<Layout />}>
-          <Route index element={<OverviewPage />} /> {/* Default route for / */}
+          {/* User-facing routes */}
+          <Route index element={<OverviewPage />} />
           <Route path="students" element={<StudentsPage />} />
           <Route path="agents" element={<AgentsMonitorPage />} />
           <Route path="analytics" element={<AnalyticsPage />} />
-          {/* Add more routes here as needed */}
+
+          {/* New Modules */}
+          <Route path="financial" element={<FinancialPage />} />
+          <Route path="attendance" element={<AttendancePage />} />
+          
+          {/* Admin routes */}
+          <Route path="admin/data" element={<DataManagementPage />} />
+          <Route path="admin/roles" element={<RoleManagementPage />} />
+          <Route path="admin/logs" element={<LogViewerPage />} />
+
         </Route>
       </Routes>
     </Router>
